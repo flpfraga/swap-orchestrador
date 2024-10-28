@@ -1,0 +1,21 @@
+version: '3'
+
+volumes:
+  orchestrador_mongodb_data:
+
+services:
+  mongodb:
+    image: mongo:5.0.13
+    ports:
+      - '27017:27017'
+    container_name: orchestrador_mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: orchestrador_adm
+      command: --auth
+      restart: on-failure
+    volumes:
+      - orchestrador_mongodb_data:/data/db
+      - ./startup/mongo-init-orchestrador.js:/docker-entrypoint-initdb.d/mongo-init-orchestrador.js:ro
+    network_mode: bridge

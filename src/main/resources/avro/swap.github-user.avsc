@@ -1,0 +1,15 @@
+{
+  "namespace": "swap.producer.user",
+  "type": "record",
+  "name": "GithubUser",
+  "fields": [
+    {
+      "name": "user",
+      "type": "string"
+    },
+    {
+      "name": "repository",
+      "type": "string"
+    }
+  ]
+}
