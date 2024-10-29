@@ -15,8 +15,9 @@ done
 kafka-topics --create --topic USER-REPOSITORY-GITHUB-TOPIC --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
 
 # Cria o tópico com informações de repositórios, com delay de 1 dia para entrega
-kafka-topics --create --topic INFO-REPOSITORY-GITHUB-TOPIC --bootstrap-server localhost:9092 \
+kafka-topics --create --topic INFO-REPOSITORY-GITHUB-TOPIC \
+    --bootstrap-server localhost:9092 \
     --partitions 1 --replication-factor 1 \
-    --config retention.ms=15
+    --config retention.ms=86400000
 
 echo "Tópico 'USER_REPOSITORY_GITHUB_TOPIC' criado com sucesso!"
