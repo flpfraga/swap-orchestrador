@@ -1,22 +1,17 @@
 package swap.orchestrador.dto;
 
-public class GithubClientUserDTO extends GithubClientContributorsDTO{
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+public class GithubClientUserDTO extends GithubClientContributorsDTO {
     private String name;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public GithubClientUserDTO() {
-    }
-
     public GithubClientUserDTO(String name, GithubClientContributorsDTO githubClientContributorsDTO) {
+        super(githubClientContributorsDTO.getLogin(), githubClientContributorsDTO.getContributions());
         this.name = name;
-        this.setContributions(githubClientContributorsDTO.getContributions());
-        this.setLogin(githubClientContributorsDTO.getLogin());
     }
 }

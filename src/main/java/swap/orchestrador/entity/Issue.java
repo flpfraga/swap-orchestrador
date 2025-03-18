@@ -1,43 +1,16 @@
 package swap.orchestrador.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Document
 public class Issue {
     private String title;
     private String author;
     private String labels;
-
-    public Issue() {
-    }
-
-    public Issue(String title, String author, String labels) {
-        this.title = title;
-        this.author = author;
-        this.labels = labels;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getLabels() {
-        return labels;
-    }
-
-    public void setLabels(String labels) {
-        this.labels = labels;
-    }
 }
